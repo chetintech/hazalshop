@@ -1,0 +1,18 @@
+{
+
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/node_modules": true,
+    },
+    
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/.vscode/settings.json": true,
+        "**/package.json": true,
+        "**/package-lock.json": true
+    }
+}
