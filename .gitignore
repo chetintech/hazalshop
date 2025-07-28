@@ -1,0 +1,13 @@
+# React build dosyaları
+/client/build
+
+# Node modules (hem frontend hem backend için)
+**/node_modules
+
+# .env dosyaları (güvenlik için)
+/backend/.env
+/frontend/.env
+
+# log ve sistem dosyaları
+*.log
+.DS_Store
