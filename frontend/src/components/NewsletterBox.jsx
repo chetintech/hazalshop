@@ -9,7 +9,7 @@ const NewsletterBox = () => {
   return (
     <div className='text-center bg-gradient-to-br from-slate-50 to-gray-100 py-16 px-8 rounded-2xl shadow-xl w-full max-w-8xl mx-auto mb-30'>
       <h2 className='text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-10'>
-        Sanat yolculuğuna katıl, %20 indirim azan!
+        Sanat yolculuğuna katıl, %20 indirim kazan!
       </h2>
 
       <p className='text-gray-600 mt-6 max-w-md mx-auto leading-relaxed'>
