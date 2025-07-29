@@ -12,30 +12,30 @@ const createToken = (id) => {
 // Route for user login
 const loginUser = async (req, res) => {
     try {
-        
+
         const { email, password } = req.body
         const user = await userModel.findOne({ email })
 
         if (!user) {
-            return res.json ({ success:false, message: "User doesn't exist"})
-            
+            return res.json({ success: false, message: "User doesn't exist" })
+
         }
 
         const isMatch = await bcrypt.compare(password, user.password)
 
         if (isMatch) {
             const token = createToken(user._id)
-            res.json({ success: true, token})
+            res.json({ success: true, token })
         }
 
         else {
-            res.json( {success: false, message: 'Invalid credentials'})
+            res.json({ success: false, message: 'Invalid credentials' })
         }
-        
+
 
     } catch (error) {
         console.log(error)
-        res.json({ success: false, message: error.message})
+        res.json({ success: false, message: error.message })
     }
 }
 
@@ -47,15 +47,15 @@ const registerUser = async (req, res) => {
         // Checking user already exists or not
         const exists = await userModel.findOne({ email })
         if (exists) {
-            return res.json({success: false, message: "User aready exists"})
+            return res.json({ success: false, message: "User aready exists" })
         }
 
         if (!validator.isEmail(email)) {
-            return res.json({success: false, message: "Please enter a valid email"})
+            return res.json({ success: false, message: "Please enter a valid email" })
         }
 
         if (password.length < 8) {
-            return res.json({success: false, message: "Please enter a strong password"})
+            return res.json({ success: false, message: "Please enter a strong password" })
         }
 
         // Hashing user password
@@ -65,7 +65,7 @@ const registerUser = async (req, res) => {
         const newUser = new userModel({
             name,
             email,
-            password:hashedPassword
+            password: hashedPassword
         })
 
         const user = await newUser.save()
@@ -75,15 +75,55 @@ const registerUser = async (req, res) => {
 
     } catch (error) {
         console.log(error)
-        res.json({ success: false, message: error.message})
+        res.json({ success: false, message: error.message })
     }
 
 }
 
 // Route for admin login
+// adminLogin
 const adminLogin = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
+      const token = jwt.sign({ email, password }, process.env.JWT_SECRET ?? '', { expiresIn: '1h' });
+      res.json({ success: true, token });
+    } else {
+      res.json({ success: false, message: "Invalid credentials" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+// adminAuth middleware
+const adminAuth = async (req, res, next) => {
+  try {
+    const authHeader = req.headers.authorization || '';
+    const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : null;
+
+    if (!token) {
+      return res.status(401).json({ success: false, message: "Not authorized, login again" });
+    }
+
+    const tokenPayload = jwt.verify(token, process.env.JWT_SECRET);
+
+    const isValidAdmin =
+      tokenPayload.email === process.env.ADMIN_EMAIL &&
+      tokenPayload.password === process.env.ADMIN_PASSWORD;
+
+    if (!isValidAdmin) {
+      return res.status(403).json({ success: false, message: "Not authorized, login again" });
+    }
+
+    next();
+  } catch (error) {
+    console.error("Admin Auth Error:", error);
+    res.status(401).json({ success: false, message: error.message });
+  }
+};
 
 
-}
-
-export { loginUser, registerUser, adminLogin}
+export { loginUser, registerUser, adminLogin, adminAuth };

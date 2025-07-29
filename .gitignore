@@ -1,13 +1,37 @@
-# React build dosyaları
-/client/build
-
-# Node modules (hem frontend hem backend için)
-**/node_modules
-
 # .env dosyaları (güvenlik için)
 /backend/.env
 /frontend/.env
 
-# log ve sistem dosyaları
-*.log
+# Sistem dosyaları
 .DS_Store
+Thumbs.db
+
+# Log dosyaları
+*.log
+
+# Geçici/önbellek dosyaları
+*.tmp
+*.swp
+*.bak
+
+# IDE/editor dosyaları
+.vscode/
+
+# Ortam dosyaları
+.env
+.env.*
+
+# Derleme / Build çıktıları
+dist/
+build/
+out/
+target/
+bin/
+obj/
+
+# Paket yöneticisi çıktıları
+node_modules/
+
+# Dependency dosyaları (lock dosyaları bazen dahil edilir, bazen edilmez)
+package-lock.json
+docker-compose.override.yml
