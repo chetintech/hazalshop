@@ -79,7 +79,7 @@ const PlaceOrder = () => {
 
         case 'mastercard':
         case 'visa':
-          toast.info("Credit card payment is not yet implemented.");
+          toast.info("Bu ödeme yöntemi henüz aktif değil");
 
           break;
         default:

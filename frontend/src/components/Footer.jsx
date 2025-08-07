@@ -17,19 +17,17 @@ const Footer = () => {
                     <p className='text-xl font-medium mb-5'>Kurumsal</p>
                     <ul className='flex flex-col gap-1 text-[#666666]'>
                         <li>Ana Sayfa</li>
-                        <li>Hakkımızda</li>
-                        <li>Sipariş</li>
-                        <li>Gizlilik Politikası</li>
+                        <li>Ürünler</li>
+                        <li>Hakkmızda</li>
                     </ul>
                 </div>
 
                  <div>
-                    <p className='text-xl font-medium mb-5'>Kurumsal</p>
+                    <p className='text-xl font-medium mb-5'>Hazal Shop</p>
                     <ul className='flex flex-col gap-1 text-[#666666]'>
-                        <li>Ana Sayfa</li>
-                        <li>Hakkımızda</li>
-                        <li>Sipariş</li>
-                        <li>Gizlilik Politikası</li>
+                        <li>Siparişler</li>
+                        <li>Sepetim</li>
+                        <li>İletişim</li>
                     </ul>
                 </div>
 
@@ -37,14 +35,14 @@ const Footer = () => {
                     <p className='text-xl font-medium mb-5'>İletişime Geçin</p>
                     <ul className='flex flex-col gap-1 text-[#666666]'>
                         <li>+90 555 555 55 55</li>
-                        <li>contact@art.com</li>
+                        <li>info@hazalshop.com</li>
                     </ul>
                 </div>
             </div>
 
             <div className='mt-10'>
                 <hr className='border-black/10' />
-                <p className='py-5 text-center text-[#666666]'>© 2025 art.com - Tüm haklar saklıdır.</p>
+                <p className='py-5 text-center text-[#666666]'>© 2025 hazalshop.com - Tüm haklar saklıdır.</p>
             </div>
         </div>
     )

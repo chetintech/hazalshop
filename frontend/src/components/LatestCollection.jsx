@@ -18,20 +18,20 @@ const LatestCollection = () => {
       <div className='text-center py-8 text-3xl'>
         <Title text1={'En son'} text2={'çıkanlar'} />
         <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-[#666666]'>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo hic perspiciatis itaque unde modi in dolor omnis, quidem amet nobis corporis voluptatibus sunt consequatur quasi consequuntur deleniti pariatur tempora. Impedit!
+          Yeni sezonun enerjisini stilinize yansıtın! Modern tasarımlar, rahat kumaşlar ve zamansız şıklık bir arada. Gündelik kombinlerden özel davet şıklığına kadar her tarza hitap eden en yeni koleksiyonumuzla tanışın. Şimdi keşfedin, modayı yakalayın!
         </p>
       </div>
 
-      
+
       {/* Rendering Products */}
       <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6'>
-        
+
         {
           latestProducts.map((item, index) => (
             <ProductItem key={index} id={item._id} image={item.image} name={item.name} price={item.price} />
           ))
         }
-        </div>
+      </div>
     </div>
   )
 }

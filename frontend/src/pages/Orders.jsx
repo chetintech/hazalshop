@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from 'react'
 import { ShopContext } from '../context/ShopContext'
 import Title from '../components/Title'
 import axios from 'axios'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Orders = () => {
   const { backendUrl, token, currency } = useContext(ShopContext)
@@ -27,8 +29,10 @@ const Orders = () => {
 
         response.data.orders.forEach((order) => {
           order.items.forEach((item) => {
+            console.log('ITEM:', item)
             allOrderItems.push({
               ...item,
+              image: item.image,
               status: order.status,
               payment: order.payment,
               paymentMethod: order.paymentMethod,
@@ -38,24 +42,28 @@ const Orders = () => {
         })
 
         setOrderData(allOrderItems.reverse())
+
+        toast.success('Sipariş durumu başarıyla güncellendi.')
       } else {
         setError('Siparişler yüklenemedi.')
+        toast.error('Siparişler yüklenemedi.')
       }
     } catch (err) {
       setError('Siparişler yüklenirken hata oluştu.')
+      toast.error('Siparişler yüklenirken hata oluştu.')
       console.error(err)
     } finally {
       setLoading(false)
     }
   }
 
-  // Sayfa yüklendiğinde otomatik siparişleri çek
   useEffect(() => {
     loadOrderData()
   }, [token])
 
   return (
     <div className="border-t pt-16">
+      <ToastContainer />
       <div className="text-2xl mb-6">
         <Title text2="Siparişlerim" />
       </div>
@@ -68,16 +76,16 @@ const Orders = () => {
 
         {orderData.map((item) => (
           <div
-            key={item._id || item.id || `${item.name}-${item.date}`} // varsa id kullan, yoksa name+date kombinasyonu
-            className="py-4 border-t border-b text-[#666666] flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+            key={item._id || item.id || `${item.name}-${item.date}`}
+            className="py-4 border-t border-b text-black flex flex-col md:flex-row md:items-center md:justify-between gap-4"
           >
             <div className="flex items-start gap-6 text-sm">
-              <img className="w-16 sm:w-20" src={item.image} alt={item.name} />
+              <img className="w-16 sm:w-20 rounded-lg" src={item.image?.[0]}/>
               <div>
                 <p className="sm:text-base font-medium">{item.name}</p>
                 <div className="flex items-center gap-3 mt-1 text-base text-[#666666]">
                   <p>
-                    {item.price} {currency}
+                  Fiyat: {item.price} {currency}
                   </p>
                   <p>Adet: {item.quantity}</p>
                   <p>Beden: {item.size}</p>
@@ -98,12 +106,11 @@ const Orders = () => {
                 <p className="min-w-2 h-2 rounded-full bg-green-500"></p>
                 <p className="text-sm md:text-base">{item.status}</p>
               </div>
-              {/* Buton işlevi belirsiz, eğer yeniden yüklemek içinse aktif. Aksi halde kaldırılabilir */}
               <button
                 onClick={loadOrderData}
                 className="border px-4 py-2 text-sm font-medium rounded-full"
               >
-                Siparişi takip et
+                Durumu güncelle
               </button>
             </div>
           </div>

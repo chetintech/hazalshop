@@ -10,13 +10,16 @@ const About = () => {
         <Title text2={'Hakkımızda'} />
       </div>
 
-      <div className='my-10 flex flex-col md:flex-row gap-16'>
-        <img className='w-full md:max-w-[450px]' src={assets.aboutUs} alt="" />
+      <div className='my-10 flex flex-col md:flex-row gap-20'>
+        <img className='w-full md:max-w-[450px] rounded-lg' src={assets.aboutUs} alt="" />
         <div className='flex flex-col justify-center gap-6 md:w-2/4 text-[#666666]'><strong className='text-black'>Vizyonumuz</strong>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente eum odio, dolorem, quibusdam quisquam omnis ex sint id cupiditate quas quos dolores! Sint quae cumque saepe illum harum laudantium quam!</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam dolor odit a, ut molestiae optio fuga sunt. Dicta at expedita, quo nostrum cupiditate, reiciendis porro vel accusantium cumque mollitia officia!</p>
+          <p>Moda ve kaliteyi bir arada sunarak, müşterilerimizin kendilerini en iyi şekilde ifade edebilecekleri özgün ve yenilikçi giyim seçenekleriyle sektörde öncü bir marka olmak.
+            Müşteri memnuniyetini ve sürdürülebilirliği esas alarak, her yaş ve tarzdan insana hitap eden, güvenilir ve ulaşılabilir moda deneyimleri yaratmak.
+          </p>
           <strong className='text-black'>Misyonumuz</strong>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt placeat rem cum dolorum provident vero earum sequi laboriosam nemo molestiae soluta, numquam harum vitae commodi quaerat quos, ipsa, nesciunt obcaecati.</p>
+          <p>En kaliteli ve şık ürünleri, uygun fiyatlarla sunarak müşterilerimizin gardıroplarını zenginleştirmek.
+            Modaya yön veren tasarımlar ve üstün hizmet anlayışıyla, alışverişi keyifli ve kolay hale getirmek.
+            Çevreye duyarlı üretim ve tedarik süreçleriyle, sürdürülebilir bir moda sektörüne katkıda bulunmak.</p>
         </div>
       </div>
 
@@ -27,17 +30,18 @@ const About = () => {
       <div className='flex flex-col md:flex-row text-sm mb-20'>
         <div className='border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5'>
           <strong>Deneyimle değişen hikayeler:</strong>
-          <p className='text-[#666666]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint neque labore facere a quam saepe minima suscipit? In facilis nisi iste sed quia? Autem adipisci iure, temporibus fuga vero molestias.</p>
+          <p className='text-[#666666]'>Müşterilerimizin ihtiyaç ve beklentilerini en iyi şekilde anlayan, sektörde uzun yıllara dayanan deneyimimizle kişiye özel çözümler sunuyoruz. Her alışverişte, farklı ve unutulmaz bir deneyim yaşamanız için çalışıyoruz.</p>
         </div>
 
         <div className='border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5'>
-          <strong>Deneyimle değişen hikayeler:</strong>
-          <p className='text-[#666666]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint neque labore facere a quam saepe minima suscipit? In facilis nisi iste sed quia? Autem adipisci iure, temporibus fuga vero molestias.</p>
+          <strong>Güven ve Kalite:</strong>
+          <p className='text-[#666666]'>Ürünlerimizin kalitesine ve müşterilerimizin memnuniyetine verdiğimiz önemle, güvenilir bir marka olmanın gururunu taşıyoruz. Moda trendlerini takip ederken kalite standartlarımızdan asla ödün vermiyoruz.
+</p>
         </div>
 
         <div className='border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5'>
-          <strong>Deneyimle değişen hikayeler:</strong>
-          <p className='text-[#666666]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint neque labore facere a quam saepe minima suscipit? In facilis nisi iste sed quia? Autem adipisci iure, temporibus fuga vero molestias.</p>
+          <strong>Müşteri Odaklı Hizmet :</strong>
+          <p className='text-[#666666]'>Sadece ürün satmak değil, müşterilerimizle güçlü bir bağ kurmak hedefimiz. Sorularınıza hızlı yanıt, satış sonrası destek ve samimi iletişimle alışverişinizi kolaylaştırıyoruz.</p>
         </div>
       </div>
 

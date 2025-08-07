@@ -21,7 +21,7 @@ const BestSeller = () => {
           <div className='text-center text-3xl py-8'>
               <Title text1={'Çok'} text2={'satanlar'} />
               <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-[#666666]'>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam sint inventore unde, odio architecto nobis rerum voluptas quis voluptatem quod dolorem laborum consequuntur praesentium? Voluptatem, omnis reprehenderit. Perferendis, cumque dolorum.
+              Tarzıyla fark yaratan parçalar burada! Müşterilerimizin en çok tercih ettiği ürünlerle sen de modaya yön ver. Konfor, kalite ve şıklığı bir araya getiren bu favori tasarımlar, gardırobunun vazgeçilmezi olacak. Sınırlı stoklarla kaçırmadan hemen incele!
               </p>
               
           </div>
